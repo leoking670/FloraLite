@@ -668,7 +668,7 @@ export function renderPage(): string {
         <span class="bar"></span>
         <span class="dot"></span>
       </div>
-      <p class="hero-note"><strong>使用指南 · How to</strong>上传一张清晰的植物照片，FloraLite 将基于百度植物识别返回三项可能的物种与对应置信度。</p>
+      <p class="hero-note"><strong>使用指南 · How to</strong>上传一张清晰的植物照片，FloraLite 将给出三项最可能的物种及置信度。</p>
     </section>
 
     <section class="workspace">
@@ -696,7 +696,7 @@ export function renderPage(): string {
               <span>选择图片</span>
               <span aria-hidden="true">＋</span>
             </label>
-            <input id="file" class="sr-only" type="file" accept="image/jpeg,image/png,image/bmp" capture="environment">
+            <input id="file" class="sr-only" type="file" accept="image/jpeg,image/png,image/bmp">
             <button id="submit" class="btn" disabled>
               <span>识别物种</span>
               <span class="arrow" aria-hidden="true">→</span>
@@ -728,9 +728,9 @@ export function renderPage(): string {
     </section>
 
     <footer class="footer">
-      <span>FloraLite · 轻量植物识别</span>
+      <span>FloraLite</span>
       <span class="glyph">❦</span>
-      <span>Powered by Baidu AI</span>
+      <span>Edition · MMXXVI</span>
     </footer>
   </div>
 
