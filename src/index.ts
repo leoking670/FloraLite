@@ -5,7 +5,7 @@ interface Env {
   BAIDU_SECRET_KEY: string;
   API_AUTH_KEY: string;
   WEB_PATH_SECRET: string;
-  TOKEN_KV: KVNamespace;
+  BAIDU_TOKEN_KV: KVNamespace;
 }
 
 interface StoredToken {
@@ -141,7 +141,7 @@ async function ensureToken(env: Env, minTtlMs: number): Promise<StoredToken> {
   const now = Date.now();
   if (memoryToken && memoryToken.expires_at - now > minTtlMs) return memoryToken;
 
-  const stored = await env.TOKEN_KV.get<StoredToken>(TOKEN_KEY, "json");
+  const stored = await env.BAIDU_TOKEN_KV.get<StoredToken>(TOKEN_KEY, "json");
   if (stored && stored.access_token && stored.expires_at - now > minTtlMs) {
     memoryToken = stored;
     return stored;
@@ -169,7 +169,7 @@ async function refreshToken(env: Env): Promise<StoredToken> {
   };
 
   memoryToken = token;
-  await env.TOKEN_KV.put(TOKEN_KEY, JSON.stringify(token));
+  await env.BAIDU_TOKEN_KV.put(TOKEN_KEY, JSON.stringify(token));
   return token;
 }
 
