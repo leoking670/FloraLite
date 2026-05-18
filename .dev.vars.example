@@ -1,0 +1,4 @@
+BAIDU_API_KEY=your-baidu-api-key
+BAIDU_SECRET_KEY=your-baidu-secret-key
+API_AUTH_KEY=your-private-api-key
+WEB_PATH_SECRET=your-long-random-web-path

@@ -1,0 +1,9 @@
+node_modules/
+.npm-cache/
+.wrangler/
+dist/
+coverage/
+.env
+.dev.vars
+*.log
+AGENTS.md
