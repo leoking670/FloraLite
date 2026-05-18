@@ -65,3 +65,11 @@ curl -X POST "https://your-worker.example/api/identify?format=shortcut" \
 ```text
 https://your-worker.example/<WEB_PATH_SECRET>
 ```
+
+## AI 辅助生成声明
+
+本项目的部分代码、文档和测试由 AI 编程助手辅助生成，并由项目维护者审阅、修改和验证。项目维护者对最终提交内容负责。
+
+## 许可证
+
+本项目采用 GNU General Public License v3.0 许可证。详见 [LICENSE](LICENSE)。

@@ -2,7 +2,7 @@
 
 [简体中文](README.md) | English
 
-Private Cloudflare Worker for Baidu plant recognition.
+FloraLite is a private plant recognition web page and API deployed on Cloudflare Workers. It calls the Baidu plant recognition API and is intended for personal private use.
 
 ## Local Development
 
@@ -16,9 +16,7 @@ The local page uses `WEB_PATH_SECRET` from `.dev.vars`.
 
 ## Cloudflare Setup
 
-Create a KV namespace for the Baidu access token cache. In the Cloudflare dashboard,
-use the resource name `floralite-baidu-token`. The Worker binding remains
-`BAIDU_TOKEN_KV`.
+Create a KV namespace for the Baidu access token cache. In the Cloudflare dashboard, use the resource name `floralite-baidu-token`. The Worker binding remains `BAIDU_TOKEN_KV`.
 
 ```bash
 npx wrangler kv namespace create BAIDU_TOKEN_KV
@@ -67,3 +65,11 @@ The private web page is available at:
 ```text
 https://your-worker.example/<WEB_PATH_SECRET>
 ```
+
+## AI-Assisted Generation Notice
+
+Parts of this project's code, documentation, and tests were generated with assistance from an AI coding assistant, then reviewed, modified, and verified by the project maintainer. The project maintainer is responsible for the final committed content.
+
+## License
+
+This project is licensed under the GNU General Public License v3.0. See [LICENSE](LICENSE).
