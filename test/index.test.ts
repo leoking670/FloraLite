@@ -19,7 +19,7 @@ interface TestEnv {
   BAIDU_SECRET_KEY: string;
   API_AUTH_KEY: string;
   WEB_PATH_SECRET: string;
-  BAIDU_TOKEN_KV: MemoryKV;
+  FLORALITE_BAIDU_TOKEN_KV: MemoryKV;
 }
 
 function makeEnv(): TestEnv {
@@ -28,7 +28,7 @@ function makeEnv(): TestEnv {
     BAIDU_SECRET_KEY: "baidu-secret-key",
     API_AUTH_KEY: "api-key",
     WEB_PATH_SECRET: "secret-path",
-    BAIDU_TOKEN_KV: new MemoryKV()
+    FLORALITE_BAIDU_TOKEN_KV: new MemoryKV()
   };
 }
 
@@ -238,7 +238,7 @@ describe("FloraLite Worker", () => {
 
     await worker.scheduled!({} as ScheduledController, env, {} as ExecutionContext);
 
-    const stored = JSON.parse(env.BAIDU_TOKEN_KV.store.get("baidu-access-token") || "{}");
+    const stored = JSON.parse(env.FLORALITE_BAIDU_TOKEN_KV.store.get("baidu-access-token") || "{}");
     expect(stored.access_token).toBe("scheduled-token");
     expect(typeof stored.expires_at).toBe("number");
   });
