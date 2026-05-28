@@ -4,8 +4,6 @@ compatibility_date = "2026-05-18"
 
 [[kv_namespaces]]
 binding = "FLORALITE_BAIDU_TOKEN_KV"
-id = "replace-with-production-kv-namespace-id"
-preview_id = "replace-with-preview-kv-namespace-id"
 
 [triggers]
 crons = ["0 */12 * * *"]

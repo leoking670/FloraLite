@@ -16,16 +16,9 @@ npm run dev
 
 ## Cloudflare 配置
 
-创建用于缓存百度 `access_token` 的 KV namespace。Worker binding 名保持为 `FLORALITE_BAIDU_TOKEN_KV`。
+`wrangler.toml` 里只保留 KV binding 名 `FLORALITE_BAIDU_TOKEN_KV`。通过 Cloudflare 的自动 provisioning，部署时会自动创建并绑定所需的 KV namespace，所以不需要把 production / preview namespace ID 写进仓库。
 
-```bash
-npx wrangler kv namespace create FLORALITE_BAIDU_TOKEN_KV
-npx wrangler kv namespace create FLORALITE_BAIDU_TOKEN_KV --preview
-```
-
-将命令返回的 namespace ID 填入 `wrangler.toml`。
-
-KV namespace ID 不是密钥，可以提交到开源仓库。真实需要保密的是百度密钥、API key 和网页随机路径，这些应通过 Cloudflare secrets 配置，不应写入仓库。如果你希望仓库始终保留占位符，也不需要维护两个仓库；可以改用 CI 在部署时根据 GitHub repository variables 生成 `wrangler.toml`，但这会比直接提交 KV ID 更复杂。
+如果你已经有现成的 KV namespace，也可以在 `wrangler.toml` 里手动补上 `id`；但对这个项目来说，默认自动创建更干净，也更适合 GitHub 一键部署。
 
 设置生产环境 secrets：
 

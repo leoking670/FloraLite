@@ -16,16 +16,9 @@ The local page uses `WEB_PATH_SECRET` from `.dev.vars`.
 
 ## Cloudflare Setup
 
-Create a KV namespace for the Baidu access token cache. Keep the Worker binding name as `FLORALITE_BAIDU_TOKEN_KV`.
+Keep only the KV binding name `FLORALITE_BAIDU_TOKEN_KV` in `wrangler.toml`. With Cloudflare automatic provisioning, deployment creates and binds the required KV namespace automatically, so there is no need to commit production or preview namespace IDs.
 
-```bash
-npx wrangler kv namespace create FLORALITE_BAIDU_TOKEN_KV
-npx wrangler kv namespace create FLORALITE_BAIDU_TOKEN_KV --preview
-```
-
-Paste the returned namespace IDs into `wrangler.toml`.
-
-KV namespace IDs are not secrets and can be committed to an open-source repository. The values that must stay secret are the Baidu credentials, API key, and private web path; configure those with Cloudflare secrets instead of committing them. If you want the public repository to keep placeholders forever, you do not need a second repository; use CI to generate `wrangler.toml` from GitHub repository variables during deployment. That is cleaner for templates, but more complex than committing non-secret KV IDs.
+If you already have an existing KV namespace, you can still add its `id` manually in `wrangler.toml`. For this project, automatic creation is the cleaner default and works better with GitHub one-click deployment.
 
 Set production secrets:
 
